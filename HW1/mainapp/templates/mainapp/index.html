@@ -1,0 +1,15 @@
+{% extends "mainapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+{{title | upper}}
+{% endblock %}
+
+{% block content %}
+			<div>
+                <img src="{% static 'images/banners/X_mas.jpg' %}" class="contentImg">
+                <img src="{% static 'images/banners/Cold.jpg' %}" class="contentImg">
+                <img src="{% static 'images/banners/RS_Champ.jpg' %}" class="contentImg">
+            </div>
+{% endblock %}
