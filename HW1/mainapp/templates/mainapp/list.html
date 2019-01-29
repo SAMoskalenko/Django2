@@ -1,0 +1,45 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% load comic_filter %}
+
+{% block title %}
+{{title | upper}}
+{% endblock %}
+
+{% block content %}
+        <div>
+            {% include 'mainapp/includes/cat_menu.html' %}
+        </div>
+
+        <div class="catalogFull">
+                <h2>Категория: "{{ category.name|comic }}"</h2>
+                <div class="paginator">
+                    {% if products.has_previous %}
+                        <a href="{% url 'catalog:page' category.pk products.previous_page_number %}"><</a>
+                    {% endif %}
+                    <span class="current">
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                    </span>
+                    {% if products.has_next %}
+                        <a href="{% url 'catalog:page' category.pk products.next_page_number %}">></a>
+                    {% endif %}
+                </div>
+            <div >
+                {% for item in products %}
+                    <div>
+                        <div class="catalogProduct">
+                            {{ item.name }}<br>
+                            <img src="{{ item.pic.url }}" alt="{{ item.title }}" title="{{ item.title }}" width="100"><br>
+                            <div>Цена {{ item.price }} USD</div>
+                            <a href="{% url 'catalog:product' item.pk %}">>>>></a><br>
+                            <button class="productButtonBuyCat">
+                                <a href="{% url 'basket:add' item.pk %}" class="productButtonBuyLink">
+                                    Купить
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

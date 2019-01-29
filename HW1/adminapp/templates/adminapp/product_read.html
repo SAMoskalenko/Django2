@@ -1,0 +1,38 @@
+{% extends 'adminapp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class ="product_read">
+        <img class="productPic" src="{{ object.pic.url }}" alt="{{ object.title }}" title="{{ object.title }}"><br>
+        <div class="productDescr">
+            <div class="productShort">
+                <div class="productShortName">Наименование товара</div><br>
+                <div class="productShortText">{{ object.fullname }}</div><br>
+            </div>
+            <div class="productFull">
+                <div class="productFullName">Описание товара</div><br>
+                <div class="productFullText">{{ object.description }}</div><br>
+            </div>
+        </div>
+        <div class="productCat">
+            <div class="productCatName">Характеристики товара</div><br>
+            {% for el in details %}
+                <ul class="productCatEl">
+                    <li>{{ el }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+        <b>в каталоге</b>
+        <p>{% if object.is_active %}да{% else %}нет{% endif %}</p>
+        <div class="product_read_button">
+            <button>
+                <a href={% url 'admin:product_update' object.pk %}>редактировать</a>
+            </button>
+            <button>
+                <a href={% url 'admin:product_delete' object.pk %}>удалить</a>
+            </button>
+            <button>
+                <a href={% url 'admin:products' object.category.pk %}>назад</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

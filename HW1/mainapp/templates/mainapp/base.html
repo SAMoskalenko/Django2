@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+            {% block title %}
+            {% endblock %}
+        </title>
+		<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+                {% block menu %}
+                    {% include 'mainapp/includes/menu.html' %}
+                {% endblock %}
+			</div>
+			<hr>
+			{% block content %}
+            {% endblock %}
+			<hr>
+			<div class="footer">&copy;Все права защищены</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "mainapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+{{title | upper}}
+{% endblock %}
+
+{% block content %}
+    <img class="productPic" src="{{ product.pic.url }}" alt="{{ product.title }}" title="{{ product.title }}"><br>
+    <div class="productDescr">
+        <div class="productShort">
+            <div class="productShortName">Наименование товара</div><br>
+            <div class="productShortText">{{ product.fullname }}</div><br>
+        </div>
+        <div class="productFull">
+            <div class="productFullName">Описание товара</div><br>
+            <div class="productFullText">{{ product.description }}</div><br>
+        </div>
+    </div>
+    <div class="productCat">
+        <div class="productCatName">Характеристики товара</div><br>
+        {% for el in details %}
+            <ul class="productCatEl">
+                <li>{{ el }}</li>
+            </ul>
+        {% endfor %}
+    </div>
+    <button class="productButtonBuy">
+        <a href="{% url 'basket:add' product.pk %}" class="productButtonBuyLink">
+            Купить
+        </a>
+    </button>
+{% endblock %}
