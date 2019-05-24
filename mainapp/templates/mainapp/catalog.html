@@ -1,0 +1,43 @@
+{% extends "mainapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+{{title | upper}}
+{% endblock %}
+
+{% block content %}
+            <div>
+            {% include 'mainapp/includes/cat_menu.html' %}
+            </div>
+            <div class="catalogFull">
+                <h2> Горячее предложение </h2>
+                <div class="catalogProduct">
+                    {{ hot_product.name }}<br>
+                    <img src="{{ hot_product.pic.url }}" alt="{{ hot_product.title }}" title="{{ hot_product.title }}" width="100"><br>
+                    <div>Цена {{ hot_product.price }} USD</div>
+                    <a href="{% url 'catalog:product' hot_product.pk %}">>>>></a><br>
+                    <button class="productButtonBuyCat">
+                        <a href="{% url 'basket:add' hot_product.pk %}" class="productButtonBuyLink">
+                            Купить
+                        </a>
+                    </button>
+                </div>
+			</div>
+			<div class="catalogFull">
+                <h2> Похожие товары </h2>
+				{% for item in same_products %}
+                    <div class="catalogProduct">
+                        {{ item.name }}<br>
+                        <img src="{{ item.pic.url }}" alt="{{ item.title }}" title="{{ item.title }}" width="100"><br>
+                        <div>Цена {{ item.price }} USD</div>
+                        <a href="{% url 'catalog:product' item.pk %}">>>>></a><br>
+                        <button class="productButtonBuyCat">
+                            <a href="{% url 'basket:add' item.pk %}" class="productButtonBuyLink">
+                                Купить
+                            </a>
+                        </button>
+                    </div>
+                {% endfor %}
+			</div>
+{% endblock %}

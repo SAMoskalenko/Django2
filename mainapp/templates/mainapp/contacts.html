@@ -1,0 +1,32 @@
+{% extends "mainapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+{{title | upper}}
+{% endblock %}
+
+{% block content %}
+			<fieldset>
+				<legend>Напишите нам</legend><br>
+				<form>
+					<label for="name">Имя пользоваьтеля</label><br>
+					<input id="name" type="text" size="30" class="contactsFieldDecoration"><br>
+					<label for="email">Элетронная почта</label><br>
+					<input id="email" type="email" size="30" class="contactsEmail"><br>
+					<label for="topic">Заголовок</label><br>
+					<input id="topic" type="text" size="60" class="contactsFieldDecoration"><br>
+					<label for="text">Текст</label><br>
+					<textarea id="text" cols="57" rows="10" class="contactsFieldDecoration"></textarea><br>
+					<input type="submit">
+				</form>
+			</fieldset>
+
+			<h2>Адрес</h2>
+			<div>
+				Контактный телефон: 8(800)0000000<br>
+				Адрес: Москва, <br>
+				<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A644d4d906c9f1105253aa800c9b1d7fe5004e84a65b7a5b93e4c3ea0a0d1fc29&amp;width=100%&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
+				Email: mail@mail.mail
+			</div>
+{% endblock %}

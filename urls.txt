@@ -1,0 +1,14 @@
+http://192.168.1.75/basket/
+http://192.168.1.75/catalog/
+http://192.168.1.75/catalog/category/0/
+http://192.168.1.75/catalog/category/86/
+http://192.168.1.75/catalog/category/88/
+http://192.168.1.75/contacts/
+http://192.168.1.75/auth/edit/
+http://192.168.1.75/order/
+http://192.168.1.75/order/read/3/
+http://192.168.1.75/order/update/3/
+http://192.168.1.75/order/delete/3/
+http://192.168.1.75/order/create/
+http://192.168.1.75/admin/users/read/
+http://192.168.1.75/admin/users/update/2/
